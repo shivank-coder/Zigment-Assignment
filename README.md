@@ -1,46 +1,187 @@
-# Getting Started with Create React App
+JSON Form Generator
+A website that can generates dynamic forms based on JSON schemas. The application provides real-time form generation, form validation, and a dark mode toggle for better user experience.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Features
+Real-time form generation from user-provided JSON schema.
+Validation for form inputs and JSON schema.
+Toggle between light and dark themes.
+Responsive design for mobile and desktop devices.
+Setup Instructions
+Prerequisites
+Node.js 
+npm or Yarn
+Clone the Repository
+bash
+Copy code
+git clone https://github.com/shivank-coder/Zigment-Assignment.git  
 
-## Available Scripts
+Install Dependencies
+bash
+npm install  
+Start the Development Server
+bash
+npm start  
+This will start the application at http://localhost:3000.
 
-In the project directory, you can run:
+Example JSON Schemas :- 
 
-### `npm start`
+ {
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+  "formTitle": "Project Requirements Survey",
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+  "formDescription": "Please fill out this survey about your project needs",
 
-### `npm test`
+  "fields": [
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+    {
 
-### `npm run build`
+      "id": "name",
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+      "type": "text",
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+      "label": "Full Name",
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+      "required": true,
 
-### `npm run eject`
+      "placeholder": "Enter your full name"
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+    },
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    {
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+      "id": "email",
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+      "type": "email",
 
-## Learn More
+      "label": "Email Address",
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+      "required": true,
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+      "placeholder": "you@example.com",
+
+      "validation": {
+
+        "pattern": "^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$",
+
+        "message": "Please enter a valid email address"
+
+      }
+
+    },
+
+    {
+
+      "id": "companySize",
+
+      "type": "select",
+
+      "label": "Company Size",
+
+      "required": true,
+
+      "options": [
+
+        { "value": "1-50", "label": "1-50 employees" },
+
+        { "value": "51-200", "label": "51-200 employees" },
+
+        { "value": "201-1000", "label": "201-1000 employees" },
+
+        { "value": "1000+", "label": "1000+ employees" }
+
+      ]
+
+    },
+
+    {
+
+      "id": "industry",
+
+      "type": "radio",
+
+      "label": "Industry",
+
+      "required": true,
+
+      "options": [
+
+        { "value": "tech", "label": "Technology" },
+
+        { "value": "healthcare", "label": "Healthcare" },
+
+        { "value": "finance", "label": "Finance" },
+
+        { "value": "retail", "label": "Retail" },
+
+        { "value": "other", "label": "Other" }
+
+      ]
+
+    },
+
+    {
+
+      "id": "timeline",
+
+      "type": "select",
+
+      "label": "Project Timeline",
+
+      "required": true,
+
+      "options": [
+
+        { "value": "immediate", "label": "Immediate (within 1 month)" },
+
+        { "value": "short", "label": "Short-term (1-3 months)" },
+
+        { "value": "medium", "label": "Medium-term (3-6 months)" },
+
+        { "value": "long", "label": "Long-term (6+ months)" }
+
+      ]
+
+    },
+
+    {
+
+      "id": "comments",
+
+      "type": "textarea",
+
+      "label": "Additional Comments",
+
+      "required": false,
+
+      "placeholder": "Any other details you'd like to share..."
+
+    }
+
+  ]
+
+}
+
+
+
+
+Local Development Guide for running the project :- 
+Project Structure
+src/components - Contains the main components like Form and JSONEditor.
+src/types - Contains TypeScript types and interfaces, such as FormSchema.
+src/ThemeContext.ts - Provides context and hooks for managing the theme (light/dark).
+src/App.tsx - Entry point of the application.
+Adding a New Feature
+Create a new component in the src/components folder if necessary.
+Define types for the new feature in src/types/FormSchema.ts.
+Update Form or JSONEditor components to support the new feature.
+Test the feature by running the development server and providing a sample JSON schema.
+Scripts
+Start the development server:
+bash
+npm start  
+Build for production:
+bash
+npm run build  
+
+
+My live project URL  :-  https://genuine-mandazi-a3e8ec.netlify.app/
